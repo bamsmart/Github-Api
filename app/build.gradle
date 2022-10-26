@@ -1,0 +1,123 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'net.shinedev.github'
+    compileSdk versions.compileSdk
+
+    defaultConfig {
+        applicationId "net.shinedev.github"
+        minSdk versions.minSdk
+        targetSdk versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            resValue "string", "app_name", "Github Api Dev"
+            resValue "string", "app_version", "Development Apps"
+            buildConfigField "String", 'BASE_URL', apiBaseUrl.dev
+            manifestPlaceholders = [
+                    appIcon: "@mipmap/ic_launcher_dev"
+            ]
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation others.kotlinStdlib
+
+    // Kotlin coroutines
+    implementation coroutines.core
+    implementation coroutines.android
+
+    // Architecture components
+    implementation androidX.lifecycleViewmodelKtx
+    implementation androidX.lifecycleRuntimeKtx
+    implementation androidX.lifecycleLivedataKtx
+
+    // NAC
+    implementation androidX.navigationFragment
+    implementation androidX.navigationUi
+
+    // Jetpack
+    implementation androidX.appCompat
+    implementation androidX.core
+    implementation androidX.fragment
+    implementation androidX.constraintLayout
+    implementation androidX.recyclerView
+    implementation androidX.multidex
+    implementation androidX.annotation
+    implementation androidX.roomRuntime
+    implementation androidX.constraintLayout
+    implementation androidX.annotation
+    implementation androidX.lifecycleLivedataKtx
+    implementation androidX.lifecycleViewmodelKtx
+    implementation androidX.lifecycleRuntimeKtx
+    kapt androidX.roomCompiler
+    implementation androidX.room
+
+    // Maps
+    implementation maps.location
+    implementation maps.maps
+    implementation androidX.material
+
+    // Network
+    implementation retrofit.core
+    implementation retrofit.converterGson
+    implementation retrofit.okhttp
+    implementation retrofit.okhttpLogginInterceptor
+
+    // Others
+    implementation others.circleImageView
+    implementation others.compressor
+    implementation others.flexbox
+    implementation others.androidSpinKit
+    implementation others.roundedImageView
+
+    // Image loader
+    implementation glide.core
+
+    // Facebook Shimmer
+    implementation others.shimmer
+    implementation others.shimmerLayout
+
+    // HILT
+    implementation dagger.hiltAndroid
+    implementation androidX.hiltWork
+    kapt dagger.hiltAndroidCompiler
+
+    // Work Manager
+    implementation androidX.workRuntime
+
+    // Timber
+    implementation others.timber
+    implementation others.chuck
+
+    // stetho
+    implementation others.stetho
+}

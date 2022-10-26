@@ -1,0 +1,183 @@
+ext {
+    apiBaseUrl = [
+            "dev": "https://api.github.com/",
+    ]
+
+    versions = [
+            "versionCode"             : 1,
+            "versionName"             : "1.0",
+            "minSdk"                  : 21,
+            "targetSdk"               : 33,
+            "compileSdk"              : 33,
+            "buildTools"              : "30.0.2",
+
+            "kotlinXCoroutine"        : "1.3.7",
+            "androidMaterial"         : "1.3.0",
+
+            "androidXAnnotation"      : '1.1.0',
+            "androidXAppCompat"       : '1.1.0',
+            "androidXArch"            : '2.1.0',
+            "androidXConstraintLayout": '1.1.3',
+            "androidXCore"            : '1.0.2',
+            "androidXHilt"            : '1.0.0',
+            "androidXLifecycle"       : '2.3.1',
+            "androidXMultidex"        : '2.0.1',
+            "androidXNavigation"      : '2.3.5',
+            "androidXRecyclerView"    : '1.0.0',
+            "androidXRoom"            : '2.2.5',
+            "androidXFragment"        : '1.2.4',
+            "androidXSwipeRresh"      : '1.1.0',
+
+            "androidXTestEspresso"    : '3.3.0',
+            "androidXTestJUnit"       : '1.1.2',
+            "androidXTestTruth"       : '1.3.0',
+            "androidXTestRunner"      : '1.3.0',
+            "androidXTestRules"       : '1.3.0',
+            "androidXTestUiAutomator" : '2.2.0',
+
+            "firebaseBom"             : '26.2.0',
+            "hilt"                    : '2.38.1',
+            "okHttp"                  : '4.9.0',
+            "kotlin"                  : '1.5.10',
+            "retrofit"                : '2.9.0',
+
+            "timber"                  : '4.7.1',
+            "glide"                   : '4.9.0',
+            "shimmer"                 : '0.5.0',
+
+            "junit"                   : '4.13.2',
+            "mockK"                   : '1.10.0',
+
+            "playServicesMaps"        : '17.0.0',
+            "androidWork"             : '1.0.1',
+            "aviLibrary"              : '2.1.3',
+            "pinLockView"             : '2.1.0',
+            "pinEntryEditText"        : '2.0.6',
+            "circleImageView"         : '3.1.0',
+            "compressor"              : '2.1.0',
+            "fotoApparat"             : '2.7.0',
+            "flexbox"                 : '1.0.0',
+            "androidSpinKit"          : '1.2.0',
+            "roundedImageView"        : '2.3.0',
+            "terbilang"               : '0.1',
+            "pagerIndicator"          : '1.0.10',
+            "shimmerLayout"           : '2.1.0',
+            "androidXLegacySupportV4" : '1.0.0',
+            "materialTargetPrompt"    : '3.2.0',
+            "playCore"                : '1.7.3',
+            "pageIndicator"           : '1.0.3',
+            "work"                    : '2.5.0',
+            "hiltWork"                : '1.0.0',
+            "stetho"                  : '1.5.1',
+            "sharedPrefMock"          : '1.0',
+            "chuck"                   : '1.1.0'
+    ]
+
+    androidX = [
+            "appCompat"            : "androidx.appcompat:appcompat:${versions.androidXAppCompat}",
+            "annotation"           : "androidx.annotation:annotation:${versions.androidXAnnotation}",
+            "core"                 : "androidx.core:core-ktx:${versions.androidXCore}",
+            "constraintLayout"     : "androidx.constraintlayout:constraintlayout:${versions.androidXConstraintLayout}",
+            "fragment"             : "androidx.fragment:fragment-ktx:${versions.androidXFragment}",
+            "multidex"             : "androidx.multidex:multidex:${versions.androidXMultidex}",
+            "material"             : "com.google.android.material:material:${versions.androidMaterial}",
+            "recyclerView"         : "androidx.recyclerview:recyclerview:${versions.androidXRecyclerView}",
+            "navigationFragment"   : "androidx.navigation:navigation-fragment-ktx:${versions.androidXNavigation}",
+            "navigationUi"         : "androidx.navigation:navigation-ui-ktx:${versions.androidXNavigation}",
+            "swipeRefresh"         : "androidx.swiperefreshlayout:swiperefreshlayout:${versions.androidXSwipeRresh}",
+
+            "lifecycleViewmodelKtx": "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.androidXLifecycle}",
+            "lifecycleRuntimeKtx"  : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.androidXLifecycle}",
+            "lifecycleLivedataKtx" : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.androidXLifecycle}",
+
+            "room"                 : "androidx.room:room-ktx:${versions.androidXRoom}",
+            "roomRuntime"          : "androidx.room:room-runtime:${versions.androidXRoom}",
+            "roomCompiler"         : "androidx.room:room-compiler:${versions.androidXRoom}",
+
+            "workRuntime"          : "androidx.work:work-runtime-ktx:${versions.work}",
+            "workTesting"          : "androidx.work:work-testing:${versions.work}",
+            "hiltWork"             : "androidx.hilt:hilt-work:${versions.hiltWork}",
+    ]
+
+    firebase = [
+            "bom"           : "com.google.firebase:firebase-bom:${versions.firebaseBom}",
+            "analytics"     : "com.google.firebase:firebase-analytics",
+            "analyticsKtx"  : "com.google.firebase:firebase-analytics-ktx",
+            "crashlytics"   : "com.google.firebase:firebase-crashlytics",
+            "crashlyticsKtx": "com.google.firebase:firebase-crashlytics-ktx",
+            "messaging"     : "com.google.firebase:firebase-messaging",
+            "messagingKtx"  : "com.google.firebase:firebase-messaging-ktx",
+            "config"        : "com.google.firebase:firebase-config-ktx"
+    ]
+
+    dagger = [
+            "hiltAndroid"        : "com.google.dagger:hilt-android:${versions.hilt}",
+            "hiltAndroidCompiler": "com.google.dagger:hilt-android-compiler:${versions.hilt}"
+    ]
+
+    retrofit = [
+            "core"                   : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            "converterGson"          : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+            "okhttp"                 : "com.squareup.okhttp3:okhttp:${versions.okHttp}",
+            "okhttpLogginInterceptor": "com.squareup.okhttp3:logging-interceptor:${versions.okHttp}"
+    ]
+
+    coroutines = [
+            "core"   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.kotlinXCoroutine}",
+            "android": "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.kotlinXCoroutine}",
+    ]
+
+    testing = [
+            "coreTesting"           : "androidx.arch.core:core-testing:${versions.androidXArch}",
+            "espressoCore"          : "androidx.test.espresso:espresso-core:${versions.androidXTestEspresso}",
+            "espressoIntent"        : "androidx.test.espresso:espresso-intents:${versions.androidXTestEspresso}",
+            "espressoIdlingResource": "androidx.test.espresso:espresso-idling-resource:${versions.androidXTestEspresso}",
+            "hilt"                  : "com.google.dagger:hilt-android-testing:${versions.hilt}",
+            "hiltAndroidCompiler"   : "com.google.dagger:hilt-android-compiler:${versions.hilt}",
+            "junit"                 : "junit:junit:${versions.junit}",
+            "junitAndroidX"         : "androidx.test.ext:junit:${versions.androidXTestJUnit}",
+            "kotlinCoroutineTest"   : "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.kotlinXCoroutine}",
+            "mockk"                 : "io.mockk:mockk:${versions.mockK}",
+            "mockkAndroid"          : "io.mockk:mockk-android:${versions.mockK}",
+            "runner"                : "androidx.test:runner:${versions.androidXTestRunner}",
+            "rules"                 : "androidx.test:rules:${versions.androidXTestRules}",
+            "truth"                 : "androidx.test.ext:truth:${versions.androidXTestTruth}",
+            "uiAutomator"           : "androidx.test.uiautomator:uiautomator:${versions.androidXTestUiAutomator}",
+            "legacySupportV4"       : "androidx.legacy:legacy-support-v4:${versions.androidXLegacySupportV4}",
+            "navigationTest"        : "androidx.navigation:navigation-testing:${versions.androidXNavigation}",
+            "sharedPrefMock"        : "com.github.IvanShafran:shared-preferences-mock:${versions.sharedPrefMock}",
+            "contrib"               : "androidx.test.espresso:espresso-contrib:${versions.androidXTestEspresso}"
+    ]
+
+    glide = [
+            "core": "com.github.bumptech.glide:glide:${versions.glide}",
+    ]
+
+    maps = [
+            "location": "com.google.android.gms:play-services-location:${versions.playServicesMaps}",
+            "maps"    : "com.google.android.gms:play-services-maps:${versions.playServicesMaps}"
+    ]
+
+    playCore = [
+            "core": "com.google.android.play:core:${versions.playCore}"
+    ]
+
+    others = [
+            "kotlinStdlib"    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
+            "shimmer"         : "com.facebook.shimmer:shimmer:${versions.shimmer}",
+            "timber"          : "com.jakewharton.timber:timber:${versions.timber}",
+            "workRuntime"     : "android.arch.work:work-runtime:${versions.androidWork}",
+            "aviLibrary"      : "com.wang.avi:library:${versions.aviLibrary}",
+            "pinLockView"     : "com.andrognito.pinlockview:pinlockview:${versions.pinLockView}",
+            "pinEntryEditText": "com.alimuzaffar.lib:pinentryedittext:${versions.pinEntryEditText}",
+            "circleImageView" : "de.hdodenhof:circleimageview:${versions.circleImageView}",
+            "compressor"      : "id.zelory:compressor:${versions.compressor}",
+            "flexbox"         : "com.google.android:flexbox:${versions.flexbox}",
+            "androidSpinKit"  : "com.github.ybq:Android-SpinKit:${versions.androidSpinKit}",
+            "roundedImageView": "com.makeramen:roundedimageview:${versions.roundedImageView}",
+            "shimmerLayout"   : "io.supercharge:shimmerlayout:${versions.shimmerLayout}",
+            "materialPrompt"  : "uk.co.samuelwall:material-tap-target-prompt:${versions.materialTargetPrompt}",
+            "stetho"          : "com.facebook.stetho:stetho:${versions.stetho}",
+            "chuck"           : "com.readystatesoftware.chuck:library:${versions.chuck}"
+    ]
+}
