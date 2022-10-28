@@ -1,22 +1,19 @@
 <resources>
-    <string name="app_name">GithubApi</string>
-    <string name="notification_setting">Notification Setting</string>
     <string name="title_list_user">List User</string>
     <string name="title_detail_user">Detail User</string>
-    <string name="title_setting">Setting</string>
-    <string name="search_user">Search User</string>
-    <string name="favorite_user">Favorite User</string>
-    <string name="search_user_not_found">Sorry, user not found!</string>
     <string name="unable_to_load_data">Sorry, Unable to load data!</string>
     <string name="following">Following<b>(%1$s)</b></string>
     <string name="follower">Follower<b>(%1$s)</b></string>
 
-    <!--Preferences-->
-    <string name="key_reminder">reminder</string>
-    <string name="set_reminder">Reminder at 9.00 AM</string>
-    <string name="select_language">Select Language</string>
-
-    <!--Content Description-->
     <string name="button_add">Add</string>
-    <string name="button_delete">Delete</string>
+    <string name="title_favorite">favorite</string>
+    <string name="search_user">Search User</string>
+
+    <string name="success_installing_module">Success installing module</string>
+    <string name="failed_installing_module">Error installing module</string>
+
+    <string name="success_favorite">%s successfully become a favourite!</string>
+    <string name="success_un_favorite">%s success to un-favourite!</string>
+    <string name="failed_favorite">Failed</string>
+
 </resources>

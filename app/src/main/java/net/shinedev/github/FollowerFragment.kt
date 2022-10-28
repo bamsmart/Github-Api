@@ -7,16 +7,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import net.shinedev.github.adapter.UserAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import net.shinedev.core.data.Resource
+import net.shinedev.core.domain.model.User
+import net.shinedev.core.common.adapter.UserAdapter
+import net.shinedev.core.extension.hide
+import net.shinedev.core.extension.show
 import net.shinedev.github.databinding.FragmentFollowerBinding
 import net.shinedev.github.viewModel.UserViewModel
-import net.shinedev.github.viewModel.UserViewModelFactory
 
+@AndroidEntryPoint
 class FollowerFragment : Fragment() {
     private lateinit var userAdapter: UserAdapter
-    private val viewModel: UserViewModel by viewModels {
-        UserViewModelFactory((activity?.application as Apps).repository)
-    }
+    private val viewModel: UserViewModel by viewModels()
 
     private lateinit var binding: FragmentFollowerBinding
 
@@ -33,15 +36,55 @@ class FollowerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         if (savedInstanceState == null) {
             arguments?.let {
                 username = it.getString(ARG_USERNAME)
+                username?.let { user ->
+                    observeData(user)
+                }
             }
-            setDataList()
         }
         setAdapter()
-        initObserve()
+    }
+
+    private fun setAdapter()= with(binding) {
+        userAdapter = UserAdapter()
+        rvFollower.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = userAdapter
+        }
+    }
+
+    private fun observeData(username: String) = with(binding) {
+        viewModel.getFollower(username).observe(viewLifecycleOwner) { result ->
+            when (result) {
+                is Resource.Success -> {
+                    result.data?.let { usr ->
+                        if (usr.isNotEmpty()) {
+                            userAdapter.setData(usr as ArrayList<User>)
+                            rvFollower.show()
+                            tvNoResult.hide()
+                        } else {
+                            showNoResult()
+                        }
+                    } ?: run {
+                        showNoResult()
+                    }
+                    progressBar.hide()
+                }
+                is Resource.Error -> {
+                    progressBar.hide()
+                }
+                is Resource.Loading -> {
+                    progressBar.show()
+                }
+            }
+        }
+    }
+
+    private fun showNoResult()= with(binding){
+        rvFollower.hide()
+        tvNoResult.show()
     }
 
     companion object {
@@ -54,38 +97,5 @@ class FollowerFragment : Fragment() {
                     putString(ARG_USERNAME, username)
                 }
             }
-    }
-
-    private fun setAdapter() {
-        userAdapter = UserAdapter()
-        binding.rvFollower.layoutManager = LinearLayoutManager(context)
-        binding.rvFollower.adapter = userAdapter
-    }
-
-    private fun initObserve() {
-        viewModel.resultFollower.observe(viewLifecycleOwner) { users ->
-            users?.let { usr ->
-                if (usr.size > 0) {
-                    userAdapter.setData(usr)
-                    binding.rvFollower.visibility = View.VISIBLE
-                    binding.tvNoResult.visibility = View.GONE
-                } else {
-                    showNoResult()
-                }
-            } ?: run {
-                showNoResult()
-            }
-            binding.progressBar.visibility = View.GONE
-        }
-    }
-
-    private fun setDataList() {
-        binding.progressBar.visibility = View.VISIBLE
-        viewModel.setUsernameFollowers(username)
-    }
-
-    private fun showNoResult() {
-        binding.rvFollower.visibility = View.GONE
-        binding.tvNoResult.visibility = View.VISIBLE
     }
 }

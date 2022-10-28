@@ -1,6 +1,9 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -8,13 +11,15 @@ android {
     compileSdk versions.compileSdk
 
     defaultConfig {
-        applicationId "net.shinedev.core"
         minSdk versions.minSdk
-        targetSdk versions.targetSdk
-        versionCode versions.versionCode
-        versionName versions.versionName
+        targetSdk  versions.targetSdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {
@@ -33,12 +38,29 @@ android {
 }
 
 dependencies {
-
-    // Kotlin coroutines
-    implementation coroutines.core
-    implementation coroutines.android
-
-    // Jetpack
-    implementation androidX.appCompat
     implementation androidX.core
+    implementation androidX.appCompat
+    implementation androidX.material
+
+    // Network
+    implementation retrofit.core
+    implementation retrofit.converterGson
+    implementation retrofit.okhttp
+    implementation retrofit.okhttpLogginInterceptor
+
+    // Room Database
+    implementation androidX.room
+    implementation androidX.roomRuntime
+    kapt androidX.roomCompiler
+
+    // HILT
+    implementation daggerHilt.hiltAndroid
+    implementation androidX.hiltWork
+    kapt daggerHilt.hiltAndroidCompiler
+
+    // Image loader
+    implementation glide.core
+
+    // Others
+    implementation others.circleImageView
 }

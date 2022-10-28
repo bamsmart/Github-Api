@@ -136,7 +136,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/medium_space"
-            android:layout_marginRight="@dimen/medium_space"
             android:layout_marginBottom="@dimen/medium_space"
             android:clickable="true"
             android:contentDescription="@string/button_add"

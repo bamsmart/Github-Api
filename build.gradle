@@ -3,10 +3,11 @@ apply from: 'dependencies.gradle'
 
 buildscript {
     ext.kotlin_version = '1.7.20'
-    ext.hiltVersion = '2.40.1'
+    ext.hiltVersion = '2.44'
 
     repositories {
         google()
+        mavenCentral()
         maven { url 'https://jitpack.io' }
         maven { url 'https://plugins.gradle.org/m2/' }
     }

@@ -1,7 +1,8 @@
+@file:Suppress("DEPRECATION")
+
 package net.shinedev.github.adapter
 
 import android.content.Context
-import androidx.annotation.Nullable
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -12,6 +13,7 @@ import net.shinedev.github.R
 
 class SectionPagerAdapter(private val mContext: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+
     var username: String? = null
     var follower: Int? = 0
     var following: Int? = 0
@@ -19,7 +21,6 @@ class SectionPagerAdapter(private val mContext: Context, fm: FragmentManager) :
     @StringRes
     private val titles = intArrayOf(R.string.follower, R.string.following)
 
-    @Nullable
     override fun getPageTitle(position: Int): CharSequence {
         val resources = mContext.resources
         return when (position) {

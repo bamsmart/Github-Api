@@ -1,22 +1,22 @@
 package net.shinedev.github
 
-import android.app.Application
-import com.amartha.dicoding.mysubmission3.db.DatabaseApplication
-import net.shinedev.github.repository.UserRepository
-import com.facebook.stetho.Stetho
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
+import android.content.Context
+import com.google.android.play.core.splitcompat.SplitCompat
+import com.google.android.play.core.splitcompat.SplitCompatApplication
+import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
-class Apps : Application() {
-    val applicationScope = CoroutineScope(SupervisorJob())
 
-    val database by lazy { DatabaseApplication.getInstance(this) }
-    val repository by lazy { UserRepository(database.getUserDao()) }
-
+@HiltAndroidApp
+open class Apps : SplitCompatApplication() {
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
-        Stetho.initializeWithDefaults(this)
+    }
+
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(base)
+
+        SplitCompat.install(this)
     }
 }

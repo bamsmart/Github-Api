@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">core</string>
+    <string name="search_user">Search User</string>
+    <string name="favorite_user">Favorite User</string>
+    <string name="search_user_not_found">Sorry, user not found!</string>
 </resources>

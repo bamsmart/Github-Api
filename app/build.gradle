@@ -29,7 +29,6 @@ android {
             applicationIdSuffix ".debug"
             resValue "string", "app_name", "Github Api Dev"
             resValue "string", "app_version", "Development Apps"
-            buildConfigField "String", 'BASE_URL', apiBaseUrl.dev
             manifestPlaceholders = [
                     appIcon: "@mipmap/ic_launcher_dev"
             ]
@@ -46,9 +45,16 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    dynamicFeatures = [':favorite']
 }
 
 dependencies {
+    implementation project(":core")
+
+    api dagger.dagger
+    api dagger.daggerAndroid
+
     implementation others.kotlinStdlib
 
     // Kotlin coroutines
@@ -60,9 +66,10 @@ dependencies {
     implementation androidX.lifecycleRuntimeKtx
     implementation androidX.lifecycleLivedataKtx
 
-    // NAC
+    // Navigation
     implementation androidX.navigationFragment
     implementation androidX.navigationUi
+    implementation androidX.navigationDynamic
 
     // Jetpack
     implementation androidX.appCompat
@@ -72,25 +79,18 @@ dependencies {
     implementation androidX.recyclerView
     implementation androidX.multidex
     implementation androidX.annotation
-    implementation androidX.roomRuntime
     implementation androidX.constraintLayout
     implementation androidX.annotation
-    implementation androidX.lifecycleLivedataKtx
-    implementation androidX.lifecycleViewmodelKtx
-    implementation androidX.lifecycleRuntimeKtx
-    kapt androidX.roomCompiler
-    implementation androidX.room
-
-    // Maps
-    implementation maps.location
-    implementation maps.maps
     implementation androidX.material
 
-    // Network
+    // Retrofit
     implementation retrofit.core
     implementation retrofit.converterGson
     implementation retrofit.okhttp
     implementation retrofit.okhttpLogginInterceptor
+
+    // Image loader
+    implementation glide.core
 
     // Others
     implementation others.circleImageView
@@ -99,25 +99,20 @@ dependencies {
     implementation others.androidSpinKit
     implementation others.roundedImageView
 
-    // Image loader
-    implementation glide.core
-
     // Facebook Shimmer
     implementation others.shimmer
     implementation others.shimmerLayout
 
     // HILT
-    implementation dagger.hiltAndroid
-    implementation androidX.hiltWork
-    kapt dagger.hiltAndroidCompiler
+    api daggerHilt.hiltAndroid
+    kapt daggerHilt.hiltAndroidCompiler
 
     // Work Manager
     implementation androidX.workRuntime
 
     // Timber
     implementation others.timber
-    implementation others.chuck
 
-    // stetho
-    implementation others.stetho
+    // Play Core
+    implementation playCore.core
 }

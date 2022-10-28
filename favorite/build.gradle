@@ -1,0 +1,58 @@
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+android {
+    namespace 'net.shinedev.favorite'
+    compileSdk versions.compileSdk
+
+    defaultConfig {
+        minSdk versions.minSdk
+        targetSdk versions.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(":core")
+    implementation project(":app")
+
+    implementation androidX.core
+    implementation androidX.appCompat
+    implementation androidX.material
+    implementation androidX.fragment
+
+    // live-data
+    implementation androidX.lifecycleViewmodelKtx
+    implementation androidX.lifecycleRuntimeKtx
+    implementation androidX.lifecycleLivedataKtx
+
+    // Room Database
+    implementation androidX.room
+    implementation androidX.roomRuntime
+    kapt androidX.roomCompiler
+
+    // Dagger
+    kapt dagger.daggerCompiler
+    kapt dagger.daggerProcessor
+}
