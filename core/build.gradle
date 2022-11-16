@@ -23,6 +23,11 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -52,6 +57,10 @@ dependencies {
     implementation androidX.room
     implementation androidX.roomRuntime
     kapt androidX.roomCompiler
+
+    // SqlChiper
+    implementation encryption.sqlChiper
+    implementation encryption.sqlite
 
     // HILT
     implementation daggerHilt.hiltAndroid

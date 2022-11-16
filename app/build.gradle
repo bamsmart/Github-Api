@@ -32,6 +32,9 @@ android {
             manifestPlaceholders = [
                     appIcon: "@mipmap/ic_launcher_dev"
             ]
+
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
             minifyEnabled false

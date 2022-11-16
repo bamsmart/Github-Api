@@ -24,6 +24,9 @@ ext {
             "androidXFragment"        : '1.5.4',
             "androidXSwipeRresh"      : '1.1.0',
 
+            "sqlchiper"               : '4.4.0',
+            "sqlite"                  : '2.2.0',
+
             "androidXTestEspresso"    : '3.3.0',
             "androidXTestJUnit"       : '1.1.2',
             "androidXTestTruth"       : '1.3.0',
@@ -32,8 +35,8 @@ ext {
             "androidXTestUiAutomator" : '2.2.0',
 
             "firebaseBom"             : '26.2.0',
-            "dagger"                  : '2.44.1',
-            "hilt"                    : '2.44.1',
+            "dagger"                  : '2.44.2',
+            "hilt"                    : '2.44.2',
             "hiltWork"                : '1.0.0',
             "okHttp"                  : '5.0.0-alpha.10',
             "kotlin"                  : '1.7.21',
@@ -96,6 +99,11 @@ ext {
             "workRuntime"          : "androidx.work:work-runtime-ktx:${versions.work}",
             "workTesting"          : "androidx.work:work-testing:${versions.work}",
             "hiltWork"             : "androidx.hilt:hilt-work:${versions.hiltWork}",
+    ]
+
+    encryption = [
+            "sqlChiper"             : "net.zetetic:android-database-sqlcipher:${versions.sqlchiper}",
+            "sqlite"                : "androidx.sqlite:sqlite-ktx:${versions.sqlite}",
     ]
 
     firebase = [
