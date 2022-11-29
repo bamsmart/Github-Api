@@ -118,4 +118,27 @@ dependencies {
 
     // Play Core
     implementation playCore.core
+
+    // Unit Test
+    testImplementation testing.junitAndroidX
+    testImplementation testing.mockk
+    testImplementation testing.kotlinCoroutineTest
+    testImplementation testing.coreTesting
+
+    //Instrumented tests dependencies
+    androidTestImplementation testing.runner
+    androidTestImplementation testing.rules
+    androidTestImplementation testing.truth
+    androidTestImplementation testing.junitAndroidX
+    androidTestImplementation testing.uiAutomator
+    androidTestImplementation testing.mockkAndroid
+    androidTestImplementation testing.espressoCore
+    androidTestImplementation testing.espressoIntent
+    androidTestImplementation testing.espressoIdlingResource
+    androidTestImplementation testing.navigationTest
+    androidTestImplementation testing.contrib
+
+    androidTestImplementation testing.hilt
+    kaptAndroidTest testing.hiltAndroidCompiler
+    androidTestImplementation testing.sharedPrefMock
 }
