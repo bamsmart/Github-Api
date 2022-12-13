@@ -13,7 +13,6 @@ import net.shinedev.core.data.source.remote.network.ApiResponse
 import net.shinedev.core.data.source.remote.response.UserResponse
 import net.shinedev.core.domain.model.User
 import net.shinedev.core.domain.repository.UserRepository
-import net.shinedev.core.utils.AppExecutors
 import net.shinedev.core.utils.DataMapper
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -21,8 +20,7 @@ import javax.inject.Singleton
 @Singleton
 class UserRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: LocalDataSource,
-    private val appExecutors: AppExecutors
+    private val localDataSource: LocalDataSource
 ) : UserRepository {
 
     override fun getListUser(queryParams: String): Flow<Resource<List<User>>> =
@@ -39,9 +37,7 @@ class UserRepositoryImpl @Inject constructor(
 
             override suspend fun saveCallResult(data: List<UserResponse>) {
                 val userList = DataMapper.mapResponsesToEntities(data)
-                appExecutors.diskIO().execute {
-                    localDataSource.inserts(userList)
-                }
+                localDataSource.inserts(userList)
             }
         }.asFlow()
 

@@ -36,16 +36,3 @@ data class UserResponse(
 
     override val isFavorite: Boolean,
 ) : User, BaseResponse()
-
-fun User.toResponse(): UserResponse = UserResponse(
-    id = this.id,
-    username = this.username ?: "",
-    biography = this.biography ?: "",
-    avatar = this.avatar ?: "",
-    name = this.name ?: "",
-    company = this.company ?: "",
-    location = this.location ?: "",
-    follower = this.follower,
-    following = this.following,
-    isFavorite = this.isFavorite ?: false
-)

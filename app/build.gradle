@@ -119,6 +119,9 @@ dependencies {
     // Play Core
     implementation playCore.core
 
+    // LeakCanary
+    debugImplementation others.leakCanary
+
     // Unit Test
     testImplementation testing.junitAndroidX
     testImplementation testing.mockk

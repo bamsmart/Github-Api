@@ -8,6 +8,7 @@ import net.shinedev.core.data.source.local.entity.UserEntity
     entities = [
         UserEntity::class
     ],
+    exportSchema = false,
     version = 1
 )
 

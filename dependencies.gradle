@@ -71,7 +71,8 @@ ext {
             "work"                    : '2.7.1',
             "stetho"                  : '1.6.0',
             "sharedPrefMock"          : '1.0',
-            "chuck"                   : '1.1.0'
+            "chuck"                   : '1.1.0',
+            "leakCanary"              : '2.4'
     ]
 
     androidX = [
@@ -192,6 +193,7 @@ ext {
             "shimmerLayout"   : "io.supercharge:shimmerlayout:${versions.shimmerLayout}",
             "materialPrompt"  : "uk.co.samuelwall:material-tap-target-prompt:${versions.materialTargetPrompt}",
             "stetho"          : "com.facebook.stetho:stetho:${versions.stetho}",
-            "chuck"           : "com.readystatesoftware.chuck:library:${versions.chuck}"
+            "chuck"           : "com.readystatesoftware.chuck:library:${versions.chuck}",
+            "leakCanary"      : "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}"
     ]
 }
